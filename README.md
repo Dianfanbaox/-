@@ -8,9 +8,7 @@
 
 当前版本：**v1.3.4**。
 
-[构建说明](docs/BUILD.md) · [版本记录](CHANGELOG.md)
-
-源码已提供，测试安装包待发布。
+[下载安装包（测试版）](https://github.com/Dianfanbaox/-/releases/tag/v1.3.4) · [构建说明](docs/BUILD.md) · [版本记录](CHANGELOG.md)
 
 ## 界面预览
 
@@ -62,7 +60,7 @@
 
 ### Android
 
-当前版本支持 Android 7.0（API 24）及以上系统。当前仓库已提供源码及构建说明，v1.3.4 测试安装包待发布。
+当前版本支持 Android 7.0（API 24）及以上系统。在 [v1.3.4 Release](https://github.com/Dianfanbaox/-/releases/tag/v1.3.4) 下载 APK 后安装即可使用。
 
 - 项目名称：钱有数
 - 应用包名：`com.qianyoushu.shushu`
