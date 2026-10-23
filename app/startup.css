@@ -1,0 +1,41 @@
+/* 数数启动页：只在启动阶段出现，不占业务页布局。 */
+#v-launch.ui-splash { display:flex;min-height:100%;height:100%;padding:0!important;animation:none!important; }
+.ui-splash-screen { position:relative;display:flex;flex-direction:column;align-items:center;width:100%;min-height:100%;padding:28px 28px max(32px,env(safe-area-inset-bottom));background:var(--bg);overflow:hidden; }
+.ui-splash-brand { display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;width:100%;padding:44px 0 56px; }
+.ui-splash-icon { width:152px;height:152px;position:relative;border-radius:36px;flex:none;animation:qys-icon-in .7s cubic-bezier(.2,.75,.25,1) both,qys-icon-float 3.2s ease-in-out .8s infinite; }
+.ui-splash-icon::after { content:"";position:absolute;inset:12px 20px -12px;background:var(--green);filter:blur(28px);opacity:.12;z-index:0;border-radius:40px; }
+.ui-splash-icon img { display:block;position:relative;z-index:1;width:100%;height:100%;object-fit:cover;border-radius:36px;box-shadow:0 8px 30px #53653512; }
+.ui-splash-screen h1 { margin:30px 0 0;font:750 34px/1.35 var(--font);letter-spacing:.04em;color:var(--text);animation:qys-word-in .6s ease-out .2s both; }
+.ui-splash-tagline { margin:12px 0 0;color:var(--text2);font-size:14px;letter-spacing:.08em;line-height:1.8;animation:qys-word-in .6s ease-out .35s both; }
+.ui-splash-mark { width:90px;height:22px;margin-top:22px;color:var(--green);overflow:visible; }
+.ui-splash-mark path { fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:110;stroke-dashoffset:110;animation:qys-line-in .65s ease-out .55s forwards; }
+.ui-splash-footer { width:100%;min-height:74px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:qys-word-in .5s ease-out .5s both; }
+.ui-splash-status { display:flex;align-items:center;justify-content:center;gap:9px;font-size:12px;color:var(--text3);line-height:1.7;text-align:center;min-height:22px; }
+.ui-splash-status .ui-state-dots { margin:0; }
+.ui-splash-status .ui-state-dots i { width:3px;height:3px; }
+.ui-splash-status.is-ready .ui-state-dots { display:none; }
+.ui-splash-screen.is-leaving { opacity:0;transform:translateY(-5px);transition:opacity .2s ease,transform .2s ease;pointer-events:none; }
+.ui-splash-screen.is-error .ui-splash-status { color:var(--amber-text); }
+.ui-splash-screen.is-error .ui-state-dots { display:none; }
+.ui-splash-retry { min-height:44px;border:0;border-radius:12px;padding:10px 20px;background:var(--green);color:white;cursor:pointer; }
+@keyframes qys-icon-in { from {opacity:0;transform:translateY(12px) scale(.9);} to {opacity:1;transform:translateY(0) scale(1);} }
+@keyframes qys-icon-float { 0%,100% {transform:translateY(0);} 50% {transform:translateY(-4px);} }
+@keyframes qys-word-in { from {opacity:0;transform:translateY(7px);} to {opacity:1;transform:translateY(0);} }
+@keyframes qys-line-in { to {stroke-dashoffset:0;} }
+@media(max-height:640px) {
+  .ui-splash-screen { padding-top:18px;padding-bottom:20px; }
+  .ui-splash-brand { padding:44px 0 24px; }
+  .ui-splash-icon { width:120px;height:120px;border-radius:28px; }
+  .ui-splash-icon img { border-radius:28px; }
+  .ui-splash-screen h1 { margin-top:20px;font-size:29px; }
+  .ui-splash-mark { margin-top:16px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .ui-splash-icon,.ui-splash-screen h1,.ui-splash-tagline,.ui-splash-footer { animation:none!important;opacity:1;transform:none; }
+  .ui-splash-mark path { animation:none!important;stroke-dashoffset:0; }
+  .ui-splash-screen.is-leaving { transform:none;transition:none; }
+}
+
+.ui-splash-footer[hidden] { display:none; }
+/* 启动阶段保持正式界面，不显示桌面设计环境标识。 */
+body:has(#v-launch.ui-splash)::before,body:has(#v-launch.ui-splash)::after { display:none!important; }

@@ -1,0 +1,1 @@
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android"><background android:drawable="@color/shushu_olive"/><foreground><inset android:inset="16%" android:drawable="@drawable/shushu_icon"/></foreground></adaptive-icon>
