@@ -20,7 +20,7 @@
 
 ### 安装说明
 
-附件：钱有数-v1.3.4.apk
+附件：qianyoushu-v1.3.4.apk
 
 Android 7.0及以上；包名com.qianyoushu.shushu，versionCode 8。更新时直接覆盖安装，不要先卸载。当前为debug签名测试包。
 
